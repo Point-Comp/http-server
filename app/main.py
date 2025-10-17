@@ -9,7 +9,7 @@ def main():
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
     conn, addr = server_socket.accept() # wait for client
     
-    conn.sendall(b"HTTP/1.1 200 OK\r\n\r\n")
+    conn.sendall(b"GET /index.html HTTP/1.1\r\nHost: localhost:4221\r\nUser-Agent: curl/7.64.1\r\nAccept: */*\r\n\r\n")
     conn.close()
 
 
